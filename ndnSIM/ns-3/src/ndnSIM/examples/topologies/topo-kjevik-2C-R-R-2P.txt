@@ -1,0 +1,33 @@
+# topo-kjevik-2C-R-R-2P-node.txt
+
+ *  +----+    5 Mbps                                5 Mbps   +----+
+ *  | C2 |<-------------+                     +------------->| P1 |
+ *  +----+    10 ms     |                     |     10 ms    +----+
+ *                      V                     V
+ *                     +----+     1 Mbps  +----+                     
+ *                     | R1 |<----------->| R2 |                     
+ *                     +----+    10 ms    +----+                     
+ *                      ^                     ^
+ *  +----+    5 Mbps    |                     |     5 Mbps   +----+
+ *  | C1 |<-------------+                     +------------->| P2 |
+ *  +----+    10 ms                                 10 ms    +----+
+
+router
+
+# node  comment     yPos    xPos
+C1      NA          1       1
+C2      NA          5       1
+R1      NA          3       3
+R2      NA          3       5
+P2      NA          1       7
+P1      NA          5       7
+
+
+link
+
+# srcNode   dstNode     bandwidth   metric   delay   queue
+C1          R1          5Mbps       1        10ms    20
+C2          R1          5Mbps       1        10ms    20
+R1          R2          1Mbps       1        10ms    20
+R2          P2          5Mbps       1        10ms    20
+R2          P1          5Mbps       1        10ms    20

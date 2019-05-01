@@ -1,0 +1,43 @@
+# topo-kjevik-3-node.txt
+
+#  +----+  1100 Kbps  
+#  | C1 |<---------------+ 
+#  +----+    10 ms       |
+#                        |
+#  +----+  1100 Kbps     |
+#  | C2 |<-------------+ |
+#  +----+    10 ms     | |
+#                      V V
+#  +----+  1100 Kbps  +---+  5500 Kbps  +---+
+#  | C3 |<----------->| R |<----------->| P |
+#  +----+    10 ms    +---+    10 ms    +---+
+#                      ^ ^
+#  +----+  1100 Kbps   | |
+#  | C4 |<-------------+ |
+#  +----+    10 ms       |
+#                        |
+#  +----+  1100 Kbps     |
+#  | C5 |<---------------+ 
+#  +----+    10 ms    
+
+router
+
+# node  comment     yPos    xPos
+C1      NA          1       1
+C2      NA          3       1
+C3      NA          5       1
+C4      NA          7       1
+C5      NA          9       1
+R1      NA          5       3
+P1      NA          5       5
+
+
+link
+
+# srcNode   dstNode     bandwidth   metric   delay   queue
+C1          R1          0.11Mbps    1        10ms    20
+C2          R1          0.11Mbps    1        10ms    20
+C3          R1          0.11Mbps    1        10ms    20
+C4          R1          0.11Mbps    1        10ms    20
+C5          R1          0.11Mbps    1        10ms    20
+R1          P1          0.55Mbps    1        10ms    20
